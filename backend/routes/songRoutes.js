@@ -1,8 +1,7 @@
 const express = require('express');
-const Song = require('../models/song'); // Ajusta la ruta según tu estructura
+const Song = require('../models/song');
 const router = express.Router();
 
-// POST - Agregar canción
 router.post('/', async (req, res) => {
     const { name, artist, album } = req.body;
     try {
@@ -14,7 +13,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-// PUT - Actualizar canción
 router.put('/:name', async (req, res) => {
     const { name } = req.params;
     const { artist, album } = req.body;
@@ -29,7 +27,6 @@ router.put('/:name', async (req, res) => {
     }
 });
 
-// DELETE - Eliminar canción
 router.delete('/:name', async (req, res) => {
     const { name } = req.params;
     try {
