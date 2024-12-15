@@ -2,7 +2,15 @@ const express = require('express');
 const Song = require('../models/Song');
 const router = express.Router();
 
-// Agregar una canción (POST)
+router.get('/', async (req, res) => {
+    try {
+        const songs = await Song.find();
+        res.json(songs);
+    } catch (err) {
+        res.status(500).json({ message: "Error al obtener las canciones" });
+    }
+});
+
 router.post('/', async (req, res) => {
     const { name, artist, album } = req.body;
     try {
@@ -14,7 +22,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Actualizar una canción (PUT)
 router.put('/:name', async (req, res) => {
     const { name } = req.params;
     const { artist, album } = req.body;
@@ -29,7 +36,6 @@ router.put('/:name', async (req, res) => {
     }
 });
 
-// Eliminar una canción (DELETE)
 router.delete('/:name', async (req, res) => {
     const { name } = req.params;
     try {
