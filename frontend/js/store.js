@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
  });
 async function loadSongs() {
      try {
-          const response = await fetch("http://localhost:5000/api/songs");
+          const response = await fetch("https://tecweb-proyectofinalapi.onrender.com/api/songs");
           const songs = await response.json();
           const songsList = document.getElementById("songsList");
           songsList.innerHTML = "";
