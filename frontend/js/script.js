@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           const name = document.getElementById('updateName').value;
           const artist = document.getElementById('updateArtist').value;
           const album = document.getElementById('updateAlbum').value;
-          const response = await fetch(`https://tecweb-proyectofinalapi.onrender.com/api/songs${name}`, {
+          const response = await fetch(`https://tecweb-proyectofinalapi.onrender.com/api/songs/${name}`, {
                method: "PUT",
                headers: {
                     "Content-Type": "application/json"
@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           }
      });
 });
+
 async function loadSongs() {
      try {
           const response = await fetch("https://tecweb-proyectofinalapi.onrender.com/api/songs");
@@ -72,8 +73,9 @@ async function loadSongs() {
           console.error("Error al cargar las canciones:", err);
      }
 }
+
 async function deleteSong(name) {
-     const response = await fetch(`https://tecweb-proyectofinalapi.onrender.com/api/songs${name}`, {
+     const response = await fetch(`https://tecweb-proyectofinalapi.onrender.com/api/songs/${name}`, {
           method: "DELETE"
      });
      const result = await response.json();
