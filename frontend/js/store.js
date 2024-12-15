@@ -8,13 +8,15 @@ async function loadSongs() {
         const songs = await response.json();
         const songsList = document.getElementById("songsList");
         songsList.innerHTML = "";
+
         songs.forEach((song) => {
             const songCard = document.createElement("div");
             songCard.classList.add("song-card");
+
             songCard.innerHTML = `
-                <div style="display: flex; align-items: center;">
+                <div class="song-card-content">
                     <img src="/img/disco.png" alt="Disco" class="song-image">
-                    <div>
+                    <div class="song-details">
                         <h3>${song.name}</h3>
                         <h3 style="font-size: 14px; font-weight: normal;">by ${song.artist} - ${song.album}</h3>
                     </div>
