@@ -13,7 +13,7 @@ async function loadSongs() {
             songCard.classList.add("song-card");
             songCard.innerHTML = `
                 <div style="display: flex; align-items: center;">
-                    <img src="https://tecweb-proyectofinalapi.onrender.com/frontend/css/img/disco.png" alt="Disco" class="song-image"> <!-- Ruta de imagen corregida -->
+                    <img src="/img/disco.png" alt="Disco" class="song-image">
                     <div>
                         <h3>${song.name}</h3>
                         <h3 style="font-size: 14px; font-weight: normal;">by ${song.artist} - ${song.album}</h3>
