@@ -16,10 +16,14 @@ app.use('/api/songs', songRoutes);
 
 app.use(express.static(path.join(__dirname, '../frontend/html')));
 app.use('/css', express.static(path.join(__dirname, '../frontend/css')));
-app.use('/css/img', express.static(path.join(__dirname, '../frontend/css/img')));
+app.use('/img', express.static(path.join(__dirname, '../frontend/css/img')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/html/index.html'));
+});
+
+app.get('/store', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/html/store.html'));
 });
 
 const PORT = process.env.PORT || 5000;
