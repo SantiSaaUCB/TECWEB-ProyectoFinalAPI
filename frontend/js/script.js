@@ -1,5 +1,3 @@
-const BASE_URL = "https://tecweb-proyectofinalapi.onrender.com/api/songs";
-
 document.addEventListener("DOMContentLoaded", async () => {
     await loadSongs();
     document.getElementById('addSongForm').addEventListener('submit', async (event) => {
@@ -7,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const name = document.getElementById('name').value;
         const artist = document.getElementById('artist').value;
         const album = document.getElementById('album').value;
-        const response = await fetch(BASE_URL, {
+        const response = await fetch("https://tecweb-proyectofinalapi.onrender.com/api/songs", { // Usando el endpoint de Render
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -31,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const name = document.getElementById('updateName').value;
         const artist = document.getElementById('updateArtist').value;
         const album = document.getElementById('updateAlbum').value;
-        const response = await fetch(`${BASE_URL}/${name}`, {
+        const response = await fetch(`https://tecweb-proyectofinalapi.onrender.com/api/songs/${name}`, { // Usando el endpoint de Render
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -53,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function loadSongs() {
     try {
-        const response = await fetch(BASE_URL);
+        const response = await fetch("https://tecweb-proyectofinalapi.onrender.com/api/songs"); // Usando el endpoint de Render
         const songs = await response.json();
         const songsList = document.getElementById("songsList");
         songsList.innerHTML = "";
@@ -62,7 +60,7 @@ async function loadSongs() {
             songCard.classList.add("song-card");
             songCard.innerHTML = `
                 <div style="display: flex; align-items: center;">
-                    <img src="/img/disco.png" alt="Disco" class="song-image"> <!-- Cambié a ruta absoluta -->
+                    <img src="/img/disco.png" alt="Disco" class="song-image">
                     <div>
                         <h3>${song.name}</h3>
                         <h3 style="font-size: 14px; font-weight: normal;">by ${song.artist} - ${song.album}</h3>
@@ -78,7 +76,7 @@ async function loadSongs() {
 }
 
 async function deleteSong(name) {
-    const response = await fetch(`${BASE_URL}/${name}`, {
+    const response = await fetch(`https://tecweb-proyectofinalapi.onrender.com/api/songs/${name}`, { // Usando el endpoint de Render
         method: "DELETE"
     });
     const result = await response.json();

@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');
+const connectDB = require('./config/db');  // Ruta a tu archivo db.js
 const songRoutes = require('./routes/songRoutes');
 const path = require('path');
 
@@ -15,8 +15,6 @@ app.use(express.json());
 app.use('/api/songs', songRoutes);
 
 app.use(express.static(path.join(__dirname, '../frontend')));
-app.use('/css', express.static(path.join(__dirname, '../frontend/css')));
-app.use('/img', express.static(path.join(__dirname, '../frontend/css/img')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/html/index.html'));
