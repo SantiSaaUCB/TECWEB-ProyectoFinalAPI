@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     await loadSongs();
 
-    // Formulario para agregar una canción
     document.getElementById('addSongForm').addEventListener('submit', async (event) => {
         event.preventDefault();
         const name = document.getElementById('name').value;
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    // Formulario para actualizar una canción
     document.getElementById('updateSongForm').addEventListener('submit', async (event) => {
         event.preventDefault();
         const name = document.getElementById('updateName').value;
@@ -56,7 +54,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 });
 
-// Cargar las canciones desde la API
 async function loadSongs() {
     try {
         const response = await fetch("https://tecweb-proyectofinalapi.onrender.com/api/songs");
@@ -83,7 +80,6 @@ async function loadSongs() {
     }
 }
 
-// Eliminar una canción
 async function deleteSong(name) {
     const response = await fetch(`https://tecweb-proyectofinalapi.onrender.com/api/songs/${name}`, {
         method: "DELETE"
