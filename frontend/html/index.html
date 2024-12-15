@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Music Manager</title>
+     <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+     <nav>
+          <ul>
+               <li><a href="../html/index.html">Music Manager</a></li>
+               <li><a href="../html/store.html">Store</a></li>
+          </ul>
+     </nav>
+     <div class="container">
+          <h1>Music Manager</h1>
+          <h2>Lista de Canciones</h2>
+          <div id="songsList">
+          
+          </div>
+          <h2>Agregar Canción</h2>
+          <form id="addSongForm">
+               <input type="text" id="name" placeholder="Nombre de la Canción" required>
+               <input type="text" id="artist" placeholder="Artista" required>
+               <input type="text" id="album" placeholder="Álbum" required>
+               <button type="submit">Agregar Canción</button>
+          </form>
+          <h2>Actualizar Canción</h2>
+          <form id="updateSongForm">
+               <input type="text" id="updateName" placeholder="Nombre de la Canción a Actualizar" required>
+               <input type="text" id="updateArtist" placeholder="Nuevo Artista">
+               <input type="text" id="updateAlbum" placeholder="Nuevo Álbum">
+               <button type="submit">Actualizar Canción</button>
+          </form>
+          <div id="result"></div>
+     </div>
+     <script src="../js/script.js"></script>
+</body>
+</html>
