@@ -9,12 +9,13 @@ const app = express();
 
 connectDB();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
 app.use('/api/songs', songRoutes);
 
-app.use(express.static(path.join(__dirname, '../frontend/html')));
+app.use(express.static(path.join(__dirname, '../frontend')));
 app.use('/css', express.static(path.join(__dirname, '../frontend/css')));
 app.use('/img', express.static(path.join(__dirname, '../frontend/css/img')));
 
